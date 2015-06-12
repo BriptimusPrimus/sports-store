@@ -21,10 +21,15 @@ angular.module("cart", [])
             }
         },
  
-        removeProduct: function (id) {
+        removeProduct: function (id) { 
             for (var i = 0; i < cartData.length; i++) {
                 if (cartData[i].id == id) {
-                    cartData.splice(i, 1);
+                    if(cartData[i].count > 1){
+                        cartData[i].count--;
+                    }
+                    else{
+                        cartData.splice(i, 1);                         
+                    }
                     break;
                 }
             }
