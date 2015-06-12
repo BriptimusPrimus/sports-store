@@ -63,7 +63,7 @@
 			if($this->get_request_method() != "GET"){
 				$this->response('',406);
 			}
-			$query="SELECT distinct p.id, p.name, p.description, p.category, p.price FROM products p order by p.category, p.name desc";
+			$query="SELECT distinct p.id, p.name, p.description, p.category, p.price FROM products p order by p.id desc";
 			$r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
 
 			if($r->num_rows > 0){
